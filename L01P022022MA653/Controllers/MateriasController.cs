@@ -45,6 +45,12 @@ namespace L01P022022MA653.Controllers
         // GET: Materias/Create
         public IActionResult Create()
         {
+            ViewBag.Estados = new SelectList(new List<SelectListItem>
+            {
+                new SelectListItem { Value = "A", Text = "Activa" },
+                new SelectListItem { Value = "I", Text = "Inactiva" },
+                new SelectListItem { Value = "P", Text = "Pendiente" }
+            }, "Value", "Text");
             return View();
         }
 
@@ -77,6 +83,13 @@ namespace L01P022022MA653.Controllers
             {
                 return NotFound();
             }
+
+            ViewBag.Estados = new SelectList(new List<SelectListItem>
+            {
+                new SelectListItem { Value = "A", Text = "Activa" },
+                new SelectListItem { Value = "I", Text = "Inactiva" },
+                new SelectListItem { Value = "P", Text = "Pendiente" }
+            }, "Value", "Text");
             return View(materias);
         }
 
